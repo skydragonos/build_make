@@ -1347,7 +1347,7 @@ RECOVERYIMAGE_ID_FILE := $(PRODUCT_OUT)/recovery.id
 # $(1): output file
 define build-recoveryimage-target
   @echo "Generating Changelog"
-  $(hide) ./vendor/nitrogen/tools/changelog.sh
+  $(hide) ./vendor/skydragon/tools/changelog.sh
   $(hide) mv $(PRODUCT_OUT)/Changelog.txt $(PRODUCT_OUT)/$(TARGET_PRODUCT)-Changelog.txt
   # Making recovery image
   $(hide) mkdir -p $(TARGET_RECOVERY_OUT)
@@ -2879,7 +2879,7 @@ name := $(TARGET_PRODUCT)
 ifeq ($(TARGET_BUILD_TYPE),debug)
   name := $(name)_debug
 endif
-name := Nitrogen-OS-P-$(TARGET_DEVICE)-$(shell date +"%Y%m%d")
+name := SkyDragon-OS-P-$(TARGET_DEVICE)-$(shell date +"%Y%m%d")
 
 INTERNAL_OTA_PACKAGE_TARGET := $(PRODUCT_OUT)/$(name).zip
 
