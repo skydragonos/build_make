@@ -10,8 +10,9 @@ Invoke ". build/envsetup.sh" from your shell to add the following functions to y
              invocations of 'm' etc.
 - tapas:     tapas [<App1> <App2> ...] [arm|x86|mips|arm64|x86_64|mips64] [eng|userdebug|user]
 - croot:     Changes directory to the top of the tree.
-- cout:    Changes directory to out.
+- cout:      Changes directory to out.
 - m:         Makes from the top of the tree.
+- mka:       Builds using SCHED_BATCH on all processors.
 - mm:        Builds all of the modules in the current directory, but not their dependencies.
 - mmm:       Builds all of the modules in the supplied directories, but not their dependencies.
              To limit the modules being built use the syntax: mmm dir/:target1,target2.
@@ -655,6 +656,11 @@ function _lunch()
     return 0
 }
 complete -F _lunch lunch
+
+# Make using all available CPUs
+function mka() {
+    m "$@"
+}
 
 # Configures the build to build unbundled apps.
 # Run tapas with one or more app names (from LOCAL_PACKAGE_NAME)
