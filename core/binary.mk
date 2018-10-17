@@ -537,12 +537,8 @@ my_target_global_conlyflags := $($(LOCAL_2ND_ARCH_VAR_PREFIX)CLANG_$(my_prefix)G
 my_target_global_cppflags := $($(LOCAL_2ND_ARCH_VAR_PREFIX)CLANG_$(my_prefix)GLOBAL_CPPFLAGS) $(my_cpp_std_cppflags)
 my_target_global_ldflags := $($(LOCAL_2ND_ARCH_VAR_PREFIX)CLANG_$(my_prefix)GLOBAL_LDFLAGS)
     ifeq ($(my_sdclang),true)
-        SDCLANG_PRECONFIGURED_FLAGS := -Wno-vectorizer-no-neon \
--fno-align-functions -fno-align-labels -fno-align-loops -fno-align-os \
--mllvm -polly -mllvm -polly-process-unprofitable -ffp-contract=fast \
--mllvm -enable-print-fp-zero-alias -mllvm -polly-optimized-scops \
--mllvm -polly-tiling=false 
- 
+        SDCLANG_PRECONFIGURED_FLAGS := -Wno-vectorizer-no-neon
+
         ifeq ($(LOCAL_SDCLANG_LTO), true)
         ifneq ($(LOCAL_MODULE_CLASS), STATIC_LIBRARIES)
 
