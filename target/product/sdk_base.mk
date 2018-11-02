@@ -27,7 +27,6 @@ PRODUCT_PACKAGES := \
 	librs_jni \
 	LiveWallpapersPicker \
 	Mms \
-	Music \
 	Protips \
 	rild \
 	screenrecord \
