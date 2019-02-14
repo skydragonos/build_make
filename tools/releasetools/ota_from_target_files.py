@@ -814,6 +814,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   device_specific.FullOTA_InstallBegin()
 
   if OPTIONS.backuptool:
+    script.Print("Backup");
     common.ZipWriteStr(output_zip, "system/bin/backuptool.sh",
                 ""+input_zip.read("SYSTEM/bin/backuptool.sh"))
     common.ZipWriteStr(output_zip, "system/bin/backuptool.functions",
@@ -876,6 +877,7 @@ else if get_stage("%(bcb_dev)s") == "3/3" then
   common.ZipWriteStr(output_zip, "boot.img", boot_img.data)
 
   if OPTIONS.backuptool:
+    script.Print("Restore");
     script.ShowProgress(0.02, 10)
     script.Mount("/system")
     script.RunBackup("restore")
