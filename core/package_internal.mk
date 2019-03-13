@@ -657,7 +657,7 @@ endif
 ifdef LOCAL_DEX_PREOPT
 $(built_odex): PRIVATE_DEX_FILE := $(built_dex)
 # Use pattern rule - we may have multiple built odex files.
-$(built_odex) : $(dir $(LOCAL_BUILT_MODULE))% : $(built_dex)
+$(built_odex) : $(dir $(LOCAL_BUILT_MODULE))% : $(built_dex) $(ZIPALIGN)
 	$(hide) mkdir -p $(dir $@) && rm -f $@
 	$(add-dex-to-package)
 ifeq (true, $(LOCAL_UNCOMPRESS_DEX))
